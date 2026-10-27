@@ -1,0 +1,33 @@
+// use prisma-8
+
+model User {
+  id        Uuid                @id @default(uuid())
+  email     String              @unique
+  password  String?
+  google_id String?             @unique  
+  createdAt DateTime            @default(now())
+  updatedAt temporal.updatedAt()
+  lists     List[]
+}
+
+model List {
+  id        Uuid                @id @default(uuid())
+  title     String
+  createdAt DateTime            @default(now())
+  updatedAt temporal.updatedAt()
+  userId    Uuid
+  user      User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listItems ListItem[]
+}
+
+model ListItem {
+  id        Uuid                @id @default(uuid())
+  title     String    
+  position  Int
+  createdAt DateTime            @default(now())
+  updatedAt temporal.updatedAt()
+  listId    Uuid
+  list      List                @relation(fields: [listId], references: [id], onDelete: Cascade)
+
+  @@index([listId])
+}
