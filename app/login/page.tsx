@@ -1,4 +1,5 @@
 import LoginForm from "../ui/components/login-form";
+import { Suspense } from "react";
 
 export default function LoginPage() {
 
@@ -6,7 +7,9 @@ export default function LoginPage() {
         <main>
             <div className="flex items-center justify-center h-screen">
                 <div className="relative flex flex-col max-w-lg p-4">
-                    <LoginForm />
+                    <Suspense>
+                        <LoginForm />
+                    </Suspense>
                 </div>
             </div>
         </main>
