@@ -2,7 +2,7 @@
 
 import { Temporal as TemporalPolyfill } from '@js-temporal/polyfill';
 if (!globalThis.Temporal) {
-  globalThis.Temporal = TemporalPolyfill as any;
+  globalThis.Temporal = TemporalPolyfill as unknown as typeof globalThis.Temporal;
 }
 import { SignUpInput } from "./signupSchema";
 import bcrypt from 'bcrypt';

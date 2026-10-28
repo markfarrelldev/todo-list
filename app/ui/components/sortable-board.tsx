@@ -26,9 +26,9 @@ export default function SortableBoard({ initialLists, onBoardChange, onListChang
 	const id = useId();
 
 	// sync state if initial lists changes asynchronously
-	useEffect(() => {
-		setLists(initialLists);
-	}, [initialLists]);
+	// useEffect(() => {
+	// 	setLists(initialLists);
+	// }, [initialLists]);
 
 	// locates which list id contains a given list item
 	const findListIdOfListItem = (listItemId: string) => {

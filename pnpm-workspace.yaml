@@ -5,3 +5,5 @@ allowBuilds:
   sharp: false
   unrs-resolver: false
   workerd: true
+confirmModulesPurge: false
+verifyDepsBeforeRun: false
